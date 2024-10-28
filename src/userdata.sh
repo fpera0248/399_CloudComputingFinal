@@ -6,5 +6,5 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp chatroom.service /etc/systemd/system
-sudo systemctl enable chatroom
-sudo systemctl start chatroom
+systemctl enable chatroom
+systemctl start chatroom
