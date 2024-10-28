@@ -4,7 +4,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/home/ec2-user/rocketchat-ec2/src/.venv/bin/gunicorn -w 1 -b 0.0.0.0:80 app:app
+ExecStart=/rocketchat-ec2/src/.venv/bin/gunicorn --chdir /rocketchat-ec2/src -b 0.0.0.0:80 app:app
 
 [Install]
 WantedBy=multi-user.target
