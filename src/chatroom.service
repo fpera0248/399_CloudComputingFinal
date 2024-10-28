@@ -1,10 +1,12 @@
 [Unit]
-Description=Launch the Chatroom Flask server
-After=network-online.target
-Wants=network-online.target
+Description=Chatroom Flask Application
+After=network.target
 
 [Service]
-ExecStart=/home/ec2-user/rocketchat-ec2/src/.venv/bin/gunicorn --chdir /home/ec2-user/rocketchat-ec2/src -b 0.0.0.0:80 "app:app"
+User=ec2-user
+WorkingDirectory=/home/ec2-user/399_CloudComputingFinal/src
+ExecStart=/home/ec2-user/399_CloudComputingFinal/src/.venv/bin/gunicorn --bind 0.0.0.0:8000 "app:app"
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
