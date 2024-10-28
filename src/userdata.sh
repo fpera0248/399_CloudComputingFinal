@@ -5,4 +5,6 @@ cd rocketchat-ec2/src
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-gunicorn -w 1 -b 0.0.0.0:80 app:app
+cp chatroom.service /etc/systemd/system
+sudo systemctl enable chatroom
+sudo systemctl start chatroom
